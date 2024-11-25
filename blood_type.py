@@ -44,3 +44,29 @@ compatibility_bloods = {
     "O-": {"donors": ["-O"],
            "recipients": ["A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"]}
 }
+
+# Function to validate blood type input
+def validate_blood(blood_type):
+    if blood_type in compatibility_bloods:
+        return True
+    else:
+        print(f"Invalid blood type: {blood_type}. Please try again.")
+        return False
+
+
+# Function to validate menu choice input
+#The validate_blood_type function makes sure the blood type you enter is valid
+#  by checking if it’s listed in the compatibility data.
+
+#The validate_menu_choice function makes sure you pick a valid option (1, 2, or 3)
+#  from the menu.
+
+#If you mess up and enter something wrong, both functions will kindly let you 
+# know and guide you to fix it.
+def validate_menu_choice(choice):
+    if choice in ["1", "2", "3"]:
+        return True
+    else:
+        print("Invalid input! Please enter 1, 2, or 3.")
+        return False
+
