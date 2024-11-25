@@ -1,10 +1,13 @@
+from termcolor import colored
+
 
 # The welcome_display function introduces the program and provides to user a menu options.
 # The print are used to show text to the user.
 # The "-" * 35 creates a separator line for better readability.
+print('')
 def welcome_display():
     print('[', '='* 35, ']')
-    print('   Welcome to Blood Type Compatibily!')
+    print(colored("   Welcome to Blood Type Compatibily!", "yellow"))
     print('[','='* 35, ']')
     print(' ')
     print("Choose an option:")
@@ -13,7 +16,7 @@ def welcome_display():
     print("2. Check who you can donate blood to.")
     print("3. Exit the program.")
 
-first = welcome_display()
+#first = welcome_display()
 
 # Dictionary to store blood types compatibility
 # This dictionary stores blood type compatibility rules.
@@ -83,3 +86,36 @@ def get_donors(blood_type):
 # Function to get compatible recipients for a blood type
 def get_recipients(blood_type):
     return compatibility_bloods[blood_type]["recipients"]
+
+
+# Main function to run the program
+def main():
+    while True:
+        welcome_display()
+        choice = input("Enter your choice (1/2/3): ").strip()
+
+        if not validate_menu_choice(choice):
+            continue
+        
+        if choice == "3":
+            print("Thank you, Goodbye!")
+            break
+        
+        blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").strip()
+        
+        if not validate_blood(blood_type):
+            continue
+        
+        if choice == "1":
+            donors = get_donors(blood_type)
+            print(colored(f"Blood Type {blood_type} can receive donations from: {', '.join(donors)}", "green"))
+            
+        elif choice == "2":
+            recipients = get_recipients(blood_type)
+            print(colored(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green"))
+
+        print('=*' * 15)
+        print(' ')
+
+if __name__ == "__main__":
+    main()
