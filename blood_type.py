@@ -70,3 +70,16 @@ def validate_menu_choice(choice):
         print("Invalid input! Please enter 1, 2, or 3.")
         return False
 
+
+
+# get_donors returns the list of blood types that can donate to the specified blood type.
+# get_recipients returns the list of blood types the specified blood type can donate to.
+# These functions use the compatibility_bloods dictionary for quick lookups.
+
+# Function to get compatible donors for a blood type
+def get_donors(blood_type):
+    return compatibility_bloods[blood_type]["donors"]
+
+# Function to get compatible recipients for a blood type
+def get_recipients(blood_type):
+    return compatibility_bloods[blood_type]["recipients"]
