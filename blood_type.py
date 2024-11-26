@@ -70,11 +70,6 @@ def validate_menu_choice(choice):
     display_message(INVALID_MENU_MESSAGE, "red")
     return False
 
-
-# get_donors returns the list of blood types that can donate to the specified blood type.
-# get_recipients returns the list of blood types the specified blood type can donate to.
-# These functions use the compatibility_bloods dictionary for quick lookups.
-
 # Query operations
 def get_donors(blood_type):
     """Returns donors compatible with blood type."""
