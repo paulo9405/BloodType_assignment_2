@@ -50,31 +50,25 @@ def display_welcome():
         print(option)
     print()
 
-# Function to validate blood type input
+# Display messege
+def display_message(message, color="white"):
+    """Display a coloerfull message"""
+    print(colored(message, color))
+
+# Validations
 def validate_blood(blood_type):
+    """Validates that the blood type is valid."""
     if blood_type in compatibility_bloods:
         return True
-    else:
-        print(f"Invalid blood type: {blood_type}. Please try again.")
-        return False
+    display_message(INVALID_BLOOD_MESSAGE.format(blood_type=blood_type), "red")
+    return False
 
-
-# Function to validate menu choice input
-#The validate_blood_type function makes sure the blood type you enter is valid
-#  by checking if it’s listed in the compatibility data.
-
-#The validate_menu_choice function makes sure you pick a valid option (1, 2, or 3)
-#  from the menu.
-
-#If you mess up and enter something wrong, both functions will kindly let you 
-# know and guide you to fix it.
 def validate_menu_choice(choice):
+    """Validates whether the menu choice is valid."""
     if choice in ["1", "2", "3"]:
         return True
-    else:
-        print(colored("Invalid input! Please enter 1, 2, or 3.", "red"))
-        return False
-
+    display_message(INVALID_MENU_MESSAGE, "red")
+    return False
 
 
 # get_donors returns the list of blood types that can donate to the specified blood type.
@@ -103,7 +97,7 @@ def main():
             print("Thank you, Goodbye!")
             break
         
-        blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").lower().strip()
+        blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").upper().strip()
         
         if not validate_blood(blood_type):
             continue
