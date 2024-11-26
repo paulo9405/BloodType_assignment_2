@@ -1,7 +1,7 @@
 from termcolor import colored
 
 # Constant messages, variables and options
-WELCOME_MESSAGE = colored("   Welcome to Blood Type Compatibility!", "yellow")
+WELCOME_MESSAGE = colored("Welcome to Blood Type Compatibility!", "yellow")
 MENU_OPTIONS = [
     "1. Check who can donate to your blood type.",
     "2. Check who you can donate blood to.",
@@ -75,12 +75,13 @@ def validate_menu_choice(choice):
 # get_recipients returns the list of blood types the specified blood type can donate to.
 # These functions use the compatibility_bloods dictionary for quick lookups.
 
-# Function to get compatible donors for a blood type
+# Query operations
 def get_donors(blood_type):
+    """Returns donors compatible with blood type."""
     return compatibility_bloods[blood_type]["donors"]
 
-# Function to get compatible recipients for a blood type
 def get_recipients(blood_type):
+    """Returns receptors compatible with blood type."""
     return compatibility_bloods[blood_type]["recipients"]
 
 
@@ -110,7 +111,7 @@ def main():
             recipients = get_recipients(blood_type)
             print(colored(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green"))
 
-        print('=*' * 15)
+        print('=*' * 30)
         print(' ')
   
 if __name__ == "__main__":
