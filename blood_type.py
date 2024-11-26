@@ -11,23 +11,6 @@ INVALID_BLOOD_MESSAGE = "Invalid blood type: {blood_type}. Please try again."
 INVALID_MENU_MESSAGE = colored("Invalid input! Please enter 1, 2, or 3.", "red")
 EXIT_MESSAGE = "Thank you, Goodbye!"
 
-def welcome_display():
-    print('[', '='* 35, ']')
-    print(colored("   Welcome to Blood Type Compatibily!", "yellow"))
-    print('[','='* 35, ']')
-    print(' ')
-    print("Choose an option:")
-    print(' ')
-    print("1. Check who can donate to your blood type.")
-    print("2. Check who you can donate blood to.")
-    print("3. Exit the program.")
-
-#first = welcome_display()
-
-# Dictionary to store blood types compatibility
-# This dictionary stores blood type compatibility rules.
-# Each blood type maps to a donors list (who can donate to this type) and a 
-# recipients list (who this type can donate to).
 compatibility_bloods = {
     "A+": {"donors": ["A+", "A-", "O+", "O-"], 
            "recipients": ["A+", "AB+"]},
@@ -53,6 +36,19 @@ compatibility_bloods = {
     "O-": {"donors": ["-O"],
            "recipients": ["A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"]}
 }
+
+
+# Display functions
+def display_welcome():
+    """Displays the welcome message and menu options."""
+    print('[', '=' * 35, ']')
+    print(WELCOME_MESSAGE)
+    print('[', '=' * 35, ']')
+    print()
+    print(colored("Choose an option:", "yellow"))
+    for option in MENU_OPTIONS:
+        print(option)
+    print()
 
 # Function to validate blood type input
 def validate_blood(blood_type):
@@ -97,7 +93,7 @@ def get_recipients(blood_type):
 # Main function to run the program
 def main():
     while True:
-        welcome_display()
+        display_welcome()
         choice = input("Enter your choice (1/2/3): ").strip()
 
         if not validate_menu_choice(choice):
