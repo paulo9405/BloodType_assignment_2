@@ -24,10 +24,7 @@ A simple Python program to check blood type compatibility for donors and recipie
 ## Pre-requisites
 
 - Python 3.x installed on your machine.
-- Install the `termcolor` library by running:
-
-  ```bash
-  pip install termcolor
+- Install the `termcolor` library by running: pip install termcolor
 
 
 How to Run
@@ -47,5 +44,21 @@ Option 3: Exit the program.
 Enter your blood type (e.g., A+, O-, AB+) when prompted.
 
 View the results for donors or recipients.
+
+
+## Example Output
+[ =================================== ]
+   Welcome to Blood Type Compatibility!
+[ =================================== ]
+
+Choose an option:
+1. Check who can donate to your blood type.
+2. Check who you can donate blood to.
+3. Exit the program.
+
+Enter your choice (1/2/3): 1
+Enter your blood type (e.g., A+, O-, AB+): A+
+Blood Type A+ can receive donations from: A+, A-, O+, O-
+
 
 

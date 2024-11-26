@@ -33,7 +33,7 @@ compatibility_bloods = {
     "O+": {"donors": ["O+", "O-"], 
            "recipients": ["O+", "A+", "B+", "AB+"]},
 
-    "O-": {"donors": ["-O"],
+    "O-": {"donors": ["O-"],
            "recipients": ["A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"]}
 }
 
@@ -52,7 +52,7 @@ def display_welcome():
 
 # Display messege
 def display_message(message, color="white"):
-    """Display a coloerfull message"""
+    """Displays a message on the terminal with the specified color"""
     print(colored(message, color))
 
 # Validations
