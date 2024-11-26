@@ -93,26 +93,26 @@ def main():
 
         if not validate_menu_choice(choice):
             continue
-        
+
         if choice == "3":
-            print("Thank you, Goodbye!")
+            display_message(EXIT_MESSAGE, "green")
             break
-        
+
         blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").upper().strip()
-        
+
         if not validate_blood(blood_type):
             continue
-        
+
         if choice == "1":
             donors = get_donors(blood_type)
-            print(colored(f"Blood Type {blood_type} can receive donations from: {', '.join(donors)}", "green"))
-            
+            display_message(f"Blood Type {blood_type} can receive donations from: {', '.join(donors)}", "green")
+
         elif choice == "2":
             recipients = get_recipients(blood_type)
-            print(colored(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green"))
+            display_message(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green")
 
-        print('=*' * 30)
-        print(' ')
-  
+        print('+--+' * 30)
+        print()
+
 if __name__ == "__main__":
     main()
