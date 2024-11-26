@@ -35,7 +35,8 @@ How to Run
 
 2. Navigate to the project directory
 
-3. Run the program: python main.py, or in VsCode clink on play.
+3. Run the program: python blood_type.py
+   Run the tests: python tests.py
 
 4. How to Use
 Follow the menu options displayed on the terminal:
