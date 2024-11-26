@@ -1,10 +1,16 @@
 from termcolor import colored
 
+# Constant messages, variables and options
+WELCOME_MESSAGE = colored("   Welcome to Blood Type Compatibility!", "yellow")
+MENU_OPTIONS = [
+    "1. Check who can donate to your blood type.",
+    "2. Check who you can donate blood to.",
+    "3. Exit the program."
+]
+INVALID_BLOOD_MESSAGE = "Invalid blood type: {blood_type}. Please try again."
+INVALID_MENU_MESSAGE = colored("Invalid input! Please enter 1, 2, or 3.", "red")
+EXIT_MESSAGE = "Thank you, Goodbye!"
 
-# The welcome_display function introduces the program and provides to user a menu options.
-# The print are used to show text to the user.
-# The "-" * 35 creates a separator line for better readability.
-print('')
 def welcome_display():
     print('[', '='* 35, ']')
     print(colored("   Welcome to Blood Type Compatibily!", "yellow"))
@@ -42,7 +48,7 @@ compatibility_bloods = {
             "recipients": ["AB+", "AB-"]},
     
     "O+": {"donors": ["O+", "O-"], 
-           "recipients": ["O+", "A+", "B+", ]},
+           "recipients": ["O+", "A+", "B+", "AB+"]},
 
     "O-": {"donors": ["-O"],
            "recipients": ["A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"]}
@@ -70,7 +76,7 @@ def validate_menu_choice(choice):
     if choice in ["1", "2", "3"]:
         return True
     else:
-        print("Invalid input! Please enter 1, 2, or 3.")
+        print(colored("Invalid input! Please enter 1, 2, or 3.", "red"))
         return False
 
 
@@ -101,7 +107,7 @@ def main():
             print("Thank you, Goodbye!")
             break
         
-        blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").strip()
+        blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").lower().strip()
         
         if not validate_blood(blood_type):
             continue
@@ -116,6 +122,6 @@ def main():
 
         print('=*' * 15)
         print(' ')
-
+  
 if __name__ == "__main__":
     main()
