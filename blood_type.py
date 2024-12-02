@@ -106,8 +106,13 @@ def main():
             recipients = get_recipients(blood_type)
             display_message(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green")
 
-        print('+--+' * 30)
+        print('+-+' * 15)
         print()
 
 if __name__ == "__main__":
     main()
+
+# Student: Paulo Ricardo Gomes de Souza
+# No: 76011
+# Ewemail: 76011@student.dorset-college.ie
+# GitHub: https://github.com/paulo9405/BloodType_assignment_2
