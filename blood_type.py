@@ -7,7 +7,7 @@ MENU_OPTIONS = [
 ]
 INVALID_BLOOD_MESSAGE = "Invalid blood type: {blood_type}. Please try again."
 INVALID_MENU_MESSAGE = "Invalid input! Please enter 1, 2, or 3."
-EXIT_MESSAGE = "Thank you, Goodbye!"
+EXIT_MESSAGE = "\033[33m" +"Thank you, Goodbye!" + "\033[0m"
 
 compatibility_bloods = {
     "A+": {"donors": ["A+", "A-", "O+", "O-"], 
@@ -16,7 +16,7 @@ compatibility_bloods = {
     "A-": {"donors":["A-", "O-"], 
            "recipients": ["A+", "A-", "AB+", "AB-"]},
     
-    "B+": {"donors": ["B+", "B-", "0+", "O-"], 
+    "B+": {"donors": ["B+", "B-", "O+", "O-"], 
            "recipients": ["B+", "AB+"]},
     
     "B-": {"donors": ["B-", "O-"], 
