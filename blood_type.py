@@ -1,14 +1,12 @@
-from termcolor import colored
-
 # Constant messages, variables and options
-WELCOME_MESSAGE = colored("Welcome to Blood Type Compatibility!", "yellow")
+WELCOME_MESSAGE = "\033[33m" + "Welcome to Blood Type Compatibility!" + "\033[0m"
 MENU_OPTIONS = [
     "1. Check who can donate to your blood type.",
     "2. Check who you can donate blood to.",
     "3. Exit the program."
 ]
 INVALID_BLOOD_MESSAGE = "Invalid blood type: {blood_type}. Please try again."
-INVALID_MENU_MESSAGE = colored("Invalid input! Please enter 1, 2, or 3.", "red")
+INVALID_MENU_MESSAGE = "Invalid input! Please enter 1, 2, or 3."
 EXIT_MESSAGE = "Thank you, Goodbye!"
 
 compatibility_bloods = {
@@ -45,29 +43,24 @@ def display_welcome():
     print(WELCOME_MESSAGE)
     print('[', '=' * 35, ']')
     print()
-    print(colored("Choose an option:", "yellow"))
+    print("\033[33m" + "Choose an option:" + "\033[0m")
     for option in MENU_OPTIONS:
         print(option)
     print()
-
-# Display messege
-def display_message(message, color="white"):
-    """Displays a message on the terminal with the specified color"""
-    print(colored(message, color))
 
 # Validations
 def validate_blood(blood_type):
     """Validates that the blood type is valid."""
     if blood_type in compatibility_bloods:
         return True
-    display_message(INVALID_BLOOD_MESSAGE.format(blood_type=blood_type), "red")
+    print(INVALID_BLOOD_MESSAGE.format(blood_type=blood_type))
     return False
 
 def validate_menu_choice(choice):
     """Validates whether the menu choice is valid."""
     if choice in ["1", "2", "3"]:
         return True
-    display_message(INVALID_MENU_MESSAGE, "red")
+    print("\033[31m" + INVALID_MENU_MESSAGE + "\033[0m")
     return False
 
 # Query operations
@@ -90,7 +83,7 @@ def main():
             continue
 
         if choice == "3":
-            display_message(EXIT_MESSAGE, "green")
+            print(EXIT_MESSAGE)
             break
 
         blood_type = input("Enter your blood type (e.g., A+, O-, AB+): ").upper().strip()
@@ -100,13 +93,13 @@ def main():
 
         if choice == "1":
             donors = get_donors(blood_type)
-            display_message(f"Blood Type {blood_type} can receive donations from: {', '.join(donors)}", "green")
+            print(f"Blood Type {blood_type} can receive donations from: {', '.join(donors)}")
 
         elif choice == "2":
             recipients = get_recipients(blood_type)
-            display_message(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}", "green")
+            print(f"Blood Type {blood_type} can donate to: {', '.join(recipients)}")
 
-        print('+-+' * 15)
+        print('--' * 30)
         print()
 
 if __name__ == "__main__":
