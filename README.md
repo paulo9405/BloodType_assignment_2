@@ -24,8 +24,6 @@ A simple Python program to check blood type compatibility for donors and recipie
 ## Pre-requisites
 
 - Python 3.x installed on your machine.
-- Install the `termcolor` library by running: pip install termcolor
-
 
 How to Run
 1. Clone the repository: git clone https://github.com/paulo9405/BloodType_assignment_2.git
